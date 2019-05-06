@@ -1,0 +1,13 @@
+com\belajar\spring\BelajarSpringApplication.class
+com\belajar\spring\dao\impl\StudentDAOImpl.class
+com\belajar\spring\controller\MainController.class
+com\belajar\spring\service\StudentService.class
+com\belajar\spring\dao\StudentDAO.class
+com\belajar\spring\entity\Student.class
+com\belajar\spring\entity\User.class
+com\belajar\spring\entity\KRS.class
+com\belajar\spring\dao\BaseDAO.class
+com\belajar\spring\controller\StudentController.class
+com\belajar\spring\service\impl\StudentServiceImpl.class
+com\belajar\spring\common\Table.class
+com\belajar\spring\service\BaseService.class

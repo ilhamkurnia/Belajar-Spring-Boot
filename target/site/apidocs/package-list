@@ -1,0 +1,8 @@
+com.belajar.spring
+com.belajar.spring.common
+com.belajar.spring.controller
+com.belajar.spring.dao
+com.belajar.spring.dao.impl
+com.belajar.spring.entity
+com.belajar.spring.service
+com.belajar.spring.service.impl
