@@ -2,10 +2,7 @@ package com.belajar.spring.service;
 
 import java.util.List;
 
-/**
- * Created by sukenda on 29/07/18.
- * Project belajar-spring
- */
+
 public interface BaseService<T> {
 
     T save(T param);

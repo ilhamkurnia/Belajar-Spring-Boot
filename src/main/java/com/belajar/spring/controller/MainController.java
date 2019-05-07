@@ -1,5 +1,6 @@
 package com.belajar.spring.controller;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -7,11 +8,11 @@ import org.springframework.web.bind.annotation.*;
  * Project belajar-spring
  */
 
-@RestController
+@Controller
 public class MainController {
 
     @GetMapping(value = "/")
     public String home() {
-        return "Belajar spring boot";
+        return "index";
     }
 }

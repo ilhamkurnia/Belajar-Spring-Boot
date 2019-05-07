@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Belajar Spring</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" th:href="@{/font-awesome-4.7.0/css/font-awesome.min.css}">
+    <link rel="stylesheet" th:href="@{/bootstrap-3.3.7/css/bootstrap.min.css}">
+    <script th:src="@{/jquery-1.12.4.min.js}"></script>
+    <script th:src="@{/bootstrap-3.3.7/js/bootstrap.min.js}"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+        <img src="/docs/4.3/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+        Bootstrap
+    </a>
+</nav>
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <ul class="nav navbar-nav">
+            <li class="active"><a th:href="@{/}">Home</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="form-group col-md-4">
+            <h2>Insert Krs</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="form-group col-md-4">
+            <button type="button" class="close" onclick="window.location.href='/krs';">&times;</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div th:if="${param.failed}" class="alert alert-warning col-md-4" role="alert">
+            <strong>NOTIFIKASI : </strong> Gagal simpan data
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div th:if="${param.success}" class="alert alert-success col-md-4" role="alert">
+            <strong>NOTIFIKASI : </strong> Berhasil simpan data
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    </div>
+    <form th:action="@{/krs/create}" th:method="post">
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="form-group col-md-4">
+                <label for="namaJurusan">Nama Jurusan</label>
+                <input type="text" class="form-control" th:id="namaJurusan" th:name="namaJurusan" placeholder="Nama Jurusan"
+                       required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="form-group col-md-4">
+                <label for="fakultas">Fakultas</label>
+                <input type="text" class="form-control" th:id="fakultas" th:name="fakultas" placeholder="Fakultas"
+                       required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="form-group col-md-4">
+                <label for="profileName">Profile Name</label>
+                <input type="text" class="form-control" th:id="profileName" th:name="profileName" placeholder="Profile Name"
+                       required>
+                <small id="profileNameHelp" class="form-text text-muted">This name will be shown in yout profile page.</small>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="form-group col-md-4">
+                <button type="submit" class="btn btn-success">Simpan</button>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>

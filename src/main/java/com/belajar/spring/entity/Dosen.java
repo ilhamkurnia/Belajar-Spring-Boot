@@ -1,71 +1,71 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package com.belajar.spring.entity;
 
-import lombok.Getter;
-import lombok.Setter;
+package com.belajar.spring.entity;
 
 import java.io.Serializable;
 import java.util.List;
+import lombok.Getter;
+import lombok.Setter;
 
-/**
- *
- * @author ACER i3
- */
+
+
 @Getter
 @Setter
-<<<<<<< HEAD
-public class Dosen implements Serializable{
-=======
 public class Dosen implements Serializable {
->>>>>>> first
-    private int idDosen;
+    private int id_dosen;
 
-    private String nameDosen;
+    private String name;
 
-    private String addressDosen;
-
-    private String mataKuliah;
-<<<<<<< HEAD
-    
-=======
-
->>>>>>> first
-
-    //private List<KRS> krs;
+    private String address;
 
     public Dosen() {
     }
 
-    public Dosen(int idDosen) {
-        this.idDosen = idDosen;
+    public int getId_dosen() {
+        return id_dosen;
     }
 
-    public Dosen(String nameDosen, String addressDosen, String mataKuliah) {
-        this.nameDosen = nameDosen;
-        this.addressDosen = addressDosen;
-        this.mataKuliah = mataKuliah;
+    public void setId_dosen(int id_dosen) {
+        this.id_dosen = id_dosen;
     }
 
-<<<<<<< HEAD
-    public Dosen (int idDosen, String nameDosen, String addressDosen, String mataKuliah) {
-=======
-    public Dosen(int idDosen, String nameDosen, String addressDosen, String mataKuliah) {
->>>>>>> first
-        this.idDosen = idDosen;
-        this.nameDosen = nameDosen;
-        this.addressDosen = addressDosen;
-        this.mataKuliah = mataKuliah;
-    }
-<<<<<<< HEAD
-=======
-
-    public Object getIdDosen() {
-        return idDosen;
+    public String getName() {
+        return name;
     }
 
->>>>>>> first
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+
+    @Override
+    public String   toString() {
+        return "Student{" +
+                "id_dosen=" + id_dosen +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                '}';
+    }
+
+    public Dosen(int id_dosen) {
+        this.id_dosen = id_dosen;
+    }
+
+    public Dosen(String name, String address) {
+        this.name = name;
+        this.address = address;
+    }
+
+    public Dosen(int id_dosen, String name, String address) {
+        this.id_dosen = id_dosen;
+        this.name = name;
+        this.address = address;
+    }
 }

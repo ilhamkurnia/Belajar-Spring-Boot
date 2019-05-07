@@ -1,6 +1,5 @@
 package com.belajar.spring.service.impl;
 
-import com.belajar.spring.dao.KRSDAO;
 import com.belajar.spring.dao.StudentDAO;
 import com.belajar.spring.entity.Student;
 import com.belajar.spring.service.StudentService;
@@ -9,10 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * Created by sukenda on 29/07/18.
- * Project belajar-spring
- */
+
 
 @Service
 public class StudentServiceImpl implements StudentService {
@@ -20,8 +16,6 @@ public class StudentServiceImpl implements StudentService {
     @Autowired
     private StudentDAO studentDAO;
 
-    @Autowired
-    private KRSDAO krsdao;
 
     @Override
     public Student save(Student param) {
@@ -42,14 +36,19 @@ public class StudentServiceImpl implements StudentService {
     public List<Student> find() {
         List<Student> students = studentDAO.find();
         for (Student data : students){
-           data.setId((data.getId()));
+            data.setId_student(data.getId_student());
         }
-
         return students;
+
     }
 
     @Override
     public Student findById(int id) {
         return studentDAO.findById(id);
+    }
+
+    @Override
+    public List<Student> findByName(Student param) {
+        return studentDAO.findByName(param);
     }
 }

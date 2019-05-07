@@ -1,22 +1,23 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package com.belajar.spring.service.impl;
 
-import com.belajar.spring.dao.KRSDAO;
-import com.belajar.spring.dao.DosenDao;
+import com.belajar.spring.dao.DosenDAO;
 import com.belajar.spring.entity.Dosen;
 import com.belajar.spring.service.DosenService;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 
 @Service
 public class DosenServiceImpl implements DosenService {
-
     @Autowired
-    private DosenDao dosenDAO;
+    private DosenDAO dosenDAO;
 
-    @Autowired
-    private KRSDAO krsdao;
 
     @Override
     public Dosen save(Dosen param) {
@@ -37,7 +38,7 @@ public class DosenServiceImpl implements DosenService {
     public List<Dosen> find() {
         List<Dosen> dosen = dosenDAO.find();
         for (Dosen data : dosen){
-            
+            data.setId_dosen(data.getId_dosen());
         }
 
         return dosen;
@@ -48,5 +49,8 @@ public class DosenServiceImpl implements DosenService {
         return dosenDAO.findById(id);
     }
 
-
+    @Override
+    public List<Dosen> findByName(Dosen param){
+        return dosenDAO.findByName(param);
+    }
 }
