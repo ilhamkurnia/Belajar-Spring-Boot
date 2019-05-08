@@ -30,7 +30,7 @@ public class StudentController {
     @PostMapping(value = "/create")
     public String save(Student param) {
         Student data = service.save(param);
-        if (data.getId_student() == 0) {
+        if (data.getIdStudent() == 0) {
             return "redirect:/student?failed";
         } else {
             return "redirect:/student?success";
@@ -40,7 +40,7 @@ public class StudentController {
     @PutMapping(path = "/update")
     public String update(Student param) {
         Student data = service.update(param);
-        if (data.getId_student() == 0) {
+        if (data.getIdStudent() == 0) {
             return "redirect:/student?ufailed";
         } else {
             return "redirect:/student?usuccess";
@@ -64,7 +64,7 @@ public class StudentController {
             model.addAttribute("dataSets", service.find());
         } else {
             Student student = new Student();
-            student.setName(param);
+            student.setNameStudent(param);
             model.addAttribute("dataSets", service.findByName(student));
         }
         return "/student/list";

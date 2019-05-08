@@ -11,61 +11,61 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Dosen implements Serializable {
-    private int id_dosen;
+    private int idDosen;
 
-    private String name;
+    private String nameDosen;
 
-    private String address;
+    private String addressDosen;
 
     public Dosen() {
     }
 
-    public int getId_dosen() {
-        return id_dosen;
+    public int getIdDosen() {
+        return idDosen;
     }
 
-    public void setId_dosen(int id_dosen) {
-        this.id_dosen = id_dosen;
+    public void setIdDosen(int idDosen) {
+        this.idDosen = idDosen;
     }
 
-    public String getName() {
-        return name;
+    public String getNameDosen() {
+        return nameDosen;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNameDosen(String name) {
+        this.nameDosen = nameDosen;
     }
 
-    public String getAddress() {
-        return address;
+    public String getAddressDosen() {
+        return addressDosen;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setAddressDosen(String addressDosen) {
+        this.addressDosen = addressDosen;
     }
 
 
     @Override
     public String   toString() {
         return "Student{" +
-                "id_dosen=" + id_dosen +
-                ", name='" + name + '\'' +
-                ", address='" + address + '\'' +
+                "idDosen=" + idDosen +
+                ", nameDosen='" + nameDosen + '\'' +
+                ", addressDosen='" + addressDosen + '\'' +
                 '}';
     }
 
-    public Dosen(int id_dosen) {
-        this.id_dosen = id_dosen;
+    public Dosen(int idDosen) {
+        this.idDosen = idDosen;
     }
 
-    public Dosen(String name, String address) {
-        this.name = name;
-        this.address = address;
+    public Dosen(String nameDosen, String addressDosen) {
+        this.nameDosen = nameDosen;
+        this.addressDosen = addressDosen;
     }
 
-    public Dosen(int id_dosen, String name, String address) {
-        this.id_dosen = id_dosen;
-        this.name = name;
-        this.address = address;
+    public Dosen(int idDosen, String nameDosen, String addressDosen) {
+        this.idDosen = idDosen;
+        this.nameDosen = nameDosen;
+        this.addressDosen = addressDosen;
     }
 }

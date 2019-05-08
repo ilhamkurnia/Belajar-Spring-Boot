@@ -28,42 +28,45 @@ public class StudentDAOImpl implements StudentDAO {
 
     @Override
     public Student save(Student param) {
-        String sql = "INSERT INTO " + Table.TABLE_STUDENT + " (name , address, jurusan_id) VALUES (?,?,?)";
+        String sql = "INSERT INTO " + Table.TABLE_STUDENT + " (nameStudent , addressStudent, namaJurusan, fakultas) VALUES (?,?,?,?)";
 
         final KeyHolder keyHolder = new GeneratedKeyHolder();
         jdbcTemplate.update(con -> {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            ps.setString(1, param.getName());
-            ps.setString(2, param.getAddress());
-            ps.setString(3, param.getJurusan_id());
+            ps.setString(1, param.getNameStudent());
+            ps.setString(2, param.getAddressStudent());
+            ps.setString(3, param.getNamaJurusan());
+            ps.setString(4, param.getFakultas());
             return ps;
         }, keyHolder);
 
-        param.setId_student(Objects.requireNonNull(keyHolder.getKey()).intValue());
+        param.setIdStudent(Objects.requireNonNull(keyHolder.getKey()).intValue());
         return param;
     }
 
 
     @Override
     public Student update(Student param) {
-        String sql = "update " + Table.TABLE_STUDENT + " set name=?,address=? where id_student=?";
+        String sql = "update " + Table.TABLE_STUDENT + " set nameStudent=?,addressStudent=?,namaJurusan=?, fakultas=? where idStudent=?";
         int rtn = jdbcTemplate.update(connection -> {
             PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            ps.setString(1, param.getName());
-            ps.setString(2, param.getAddress());
-            ps.setInt(3, param.getId_student());
+            ps.setString(1, param.getNameStudent());
+            ps.setString(2, param.getAddressStudent());
+            ps.setString(3, param.getNamaJurusan());
+            ps.setString(4, param.getFakultas());
+            ps.setInt(5, param.getIdStudent());
             return ps;
         });
-        param.setId_student(rtn);
+        param.setIdStudent(rtn);
         return param;
     }
 
     @Override
     public int delete(Student param) {
-        String sql = "DELETE from " + Table.TABLE_STUDENT + " where id_student = ?";
+        String sql = "DELETE from " + Table.TABLE_STUDENT + " where idStudent = ?";
         int rtn = jdbcTemplate.update(connection -> {
             PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            ps.setInt(1, param.getId_student());
+            ps.setInt(1, param.getIdStudent());
             return ps;
         });
         return rtn;
@@ -78,7 +81,7 @@ public class StudentDAOImpl implements StudentDAO {
 
     @Override
     public Student findById(int id) {
-        String sql = "SELECT * FROM "+ Table.TABLE_STUDENT + " where id_student = ?";
+        String sql = "SELECT * FROM "+ Table.TABLE_STUDENT + " where idStudent = ?";
 
         try {
             return jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(Student.class), id);
@@ -90,7 +93,7 @@ public class StudentDAOImpl implements StudentDAO {
 
     @Override
     public List<Student> findByName(Student param){
-        String sql = "SELECT * FROM " + Table.TABLE_STUDENT + " where name like ?";
-        return jdbcTemplate.query(sql, new Object[]{"%" + param.getName() + "%"}, new BeanPropertyRowMapper<>(Student.class));
+        String sql = "SELECT * FROM " + Table.TABLE_STUDENT + " where nameStudent like ?";
+        return jdbcTemplate.query(sql, new Object[]{"%" + param.getNameStudent() + "%"}, new BeanPropertyRowMapper<>(Student.class));
     }
 }

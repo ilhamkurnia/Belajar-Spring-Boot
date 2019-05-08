@@ -29,41 +29,41 @@ public class DosenDAOImpl implements DosenDAO {
 
     @Override
     public Dosen save(Dosen param) {
-        String sql = "INSERT INTO " + Table.TABLE_DOSEN + " (name, address) VALUES (?, ?)";
+        String sql = "INSERT INTO " + Table.TABLE_DOSEN + " (nameDosen addressDosen) VALUES (?, ?)";
 
         final KeyHolder keyHolder = new GeneratedKeyHolder();
         jdbcTemplate.update(con -> {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            ps.setString(1, param.getName());
-            ps.setString(2, param.getAddress());
+            ps.setString(1, param.getNameDosen());
+            ps.setString(2, param.getAddressDosen());
             return ps;
         }, keyHolder);
 
-        param.setId_dosen(Objects.requireNonNull(keyHolder.getKey()).intValue());
+        param.setIdDosen(Objects.requireNonNull(keyHolder.getKey()).intValue());
         return param;
     }
 
     @Override
     public Dosen update(Dosen param) {
         String sql = "UPDATE " + Table.TABLE_DOSEN + " SET " +
-                "name = ?, " +
-                "address = ? " +
-                "WHERE id_dosen =  ? ";
+                "nameDosen = ?, " +
+                "addressDosen = ? " +
+                "WHERE idDosen =  ? ";
 
         jdbcTemplate.update(sql,
-                param.getName(),
-                param.getAddress(),
-                param.getId_dosen());
+                param.getNameDosen(),
+                param.getAddressDosen(),
+                param.getIdDosen());
 
         return param;
     }
 
     @Override
     public int delete(Dosen param) {
-        String sql = "DELETE FROM " + Table.TABLE_DOSEN + " where id_dosen=?";
+        String sql = "DELETE FROM " + Table.TABLE_DOSEN + " where idDosen=?";
         int rtn = jdbcTemplate.update(connection -> {
             PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-            ps.setInt(1, param.getId_dosen());
+            ps.setInt(1, param.getIdDosen());
             return ps;
         });
         return rtn;
@@ -78,7 +78,7 @@ public class DosenDAOImpl implements DosenDAO {
 
     @Override
     public Dosen findById(int dosen_id) {
-        String sql = "SELECT * FROM " + Table.TABLE_DOSEN + " WHERE id_dosen = ? ";
+        String sql = "SELECT * FROM " + Table.TABLE_DOSEN + " WHERE idDosen = ? ";
 
         try {
             return jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(Dosen.class), dosen_id);
@@ -90,8 +90,8 @@ public class DosenDAOImpl implements DosenDAO {
 
     @Override
     public List<Dosen> findByName(Dosen param){
-        String sql = "select * from " + Table.TABLE_DOSEN + " where name like ?";
-        return jdbcTemplate.query(sql, new Object[]{"%" + param.getName() + "%"}, new BeanPropertyRowMapper<>(Dosen.class));
+        String sql = "select * from " + Table.TABLE_DOSEN + " where nameDosen like ?";
+        return jdbcTemplate.query(sql, new Object[]{"%" + param.getNameDosen() + "%"}, new BeanPropertyRowMapper<>(Dosen.class));
     }
 
 

@@ -173,7 +173,7 @@
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <ul class="nav navbar-nav">
-            <li class="active"><a th:href="@{/}">Home</a></li>
+            <li class="active"><a th:href="@{index}">Home</a></li>
         </ul>
     </div>
 </nav>
@@ -234,7 +234,7 @@
                                                 <div class="form-group">
                                                     <label for="filter">Filter :</label>
                                                     <select class="form-control" id="filter" name="filter">
-                                                        <option value="name" selected="">Name
+                                                        <option value="name" selected="">nameStudent
                                                         </option>
                                                     </select>
                                                 </div>
@@ -259,20 +259,22 @@
                     <tr>
                         <th>Nama</th>
                         <th>Alamat</th>
-                        <th>Jurusan Id</th>
+                        <th>Nama Jurusan</th>
+                        <th>Fakultas</th>
                         <th class="text-center"><em class="fa fa-cog"></em></th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr th:each="data : ${dataSets}">
-                        <td th:text="${data.name}"></td>
-                        <td th:text="${data.address}"></td>
-                        <td th:text="${data.jurusan_id}"></td>
+                        <td th:text="${data.nameStudent}"></td>
+                        <td th:text="${data.addressStudent}"></td>
+                        <td th:text="${data.namaJurusan}"></td>
+                        <td th:text="${data.fakultas}"></td>
                         <td align="center">
-                            <a th:href="${'student/update/' + data.id_student}" class="btn btn-warning"><i
+                            <a th:href="${'student/update/' + data.idStudent}" class="btn btn-warning"><i
                                     class="fa fa-pencil"></i></a>
                             <a href="#" class="delete-modal btn btn-danger"
-                               th:data-value="${data.id_student}"
+                               th:data-value="${data.idStudent}"
                                data-toggle="modal"
                                data-target="#myModal"><i class="fa fa-trash"></i></a>
                         </td>
@@ -299,7 +301,7 @@
                 </div>
                 <div class="modal-footer">
                     <form th:action="@{/student/delete}" th:method="delete">
-                        <input type="hidden" th:id="id_dosen" th:name="id_dosen">
+                        <input type="hidden" th:id="idStudent" th:name="idStudent">
                         <button type="submit" class="btn btn-danger" name="task_del">Hapus</button>
                     </form>
                 </div>
@@ -312,7 +314,7 @@
     $(document).ready(function (e) {
         $(document).on("click", ".delete-modal", function (e) {
             var id = $(this).attr('data-value');
-            $('input[name="id_student"]').val(id);
+            $('input[name="idStudent"]').val(id);
         });
     });
 </script>

@@ -38,7 +38,7 @@ public class DosenServiceImpl implements DosenService {
     public List<Dosen> find() {
         List<Dosen> dosen = dosenDAO.find();
         for (Dosen data : dosen){
-            data.setId_dosen(data.getId_dosen());
+            data.setIdDosen(data.getIdDosen());
         }
 
         return dosen;

@@ -29,7 +29,7 @@ public class DosenController {
     @PostMapping(value = "/create")
     public String save(Dosen param) {
         Dosen data = service.save(param);
-        if (data.getId_dosen() == 0) {
+        if (data.getIdDosen() == 0) {
             return "redirect:/dosen?failed";
         } else {
             return "redirect:/dosen?success";
@@ -39,7 +39,7 @@ public class DosenController {
     @PutMapping(path = "/update")
     public String update(Dosen param) {
         Dosen data = service.update(param);
-        if (data.getId_dosen() == 0) {
+        if (data.getIdDosen() == 0) {
             return "redirect:/dosen?ufailed";
         } else {
             return "redirect:/dosen?usuccess";
@@ -62,9 +62,9 @@ public class DosenController {
         if (param == null && param1 == null) {
             model.addAttribute("dataSets", service.find());
         } else {
-            Dosen user = new Dosen();
-            user.setName(param);
-            model.addAttribute("dataSets", service.findByName(user));
+            Dosen dosen = new Dosen();
+            dosen.setNameDosen(param);
+            model.addAttribute("dataSets", service.findByName(dosen));
         }
         return "/dosen/list";
     }

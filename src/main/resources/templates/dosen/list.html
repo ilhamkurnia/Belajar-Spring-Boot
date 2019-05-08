@@ -173,7 +173,7 @@
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <ul class="nav navbar-nav">
-            <li class="active"><a th:href="@{/}">Home</a></li>
+            <li class="active"><a th:href="@{/index}">Home</a></li>
         </ul>
     </div>
 </nav>
@@ -234,7 +234,7 @@
                                                 <div class="form-group">
                                                     <label for="filter">Filter :</label>
                                                     <select class="form-control" id="filter" name="filter">
-                                                        <option value="namaJurusan" selected="">name
+                                                        <option value="nameDosen" selected="">nameDosen
                                                         </option>
                                                     </select>
                                                 </div>
@@ -264,13 +264,13 @@
                     </thead>
                     <tbody>
                     <tr th:each="data : ${dataSets}">
-                        <td th:text="${data.name}"></td>
-                        <td th:text="${data.address}"></td>
+                        <td th:text="${data.nameDosen}"></td>
+                        <td th:text="${data.addressDosen}"></td>
                         <td align="center">
-                            <a th:href="${'dosen/update/' + data.id_dosen}" class="btn btn-warning"><i
+                            <a th:href="${'dosen/update/' + data.idDosen}" class="btn btn-warning"><i
                                     class="fa fa-pencil"></i></a>
                             <a href="#" class="delete-modal btn btn-danger"
-                               th:data-value="${data.id_dosen}"
+                               th:data-value="${data.idDosen}"
                                data-toggle="modal"
                                data-target="#myModal"><i class="fa fa-trash"></i></a>
                         </td>
@@ -296,8 +296,8 @@
                     <p>Aksi ini tidak dapat di ulang.</p>
                 </div>
                 <div class="modal-footer">
-                    <form th:action="@{/krs/delete}" th:method="delete">
-                        <input type="hidden" th:id="id" th:name="id">
+                    <form th:action="@{/dosen/delete}" th:method="delete">
+                        <input type="hidden" th:id="idDosen" th:name="idDosen">
                         <button type="submit" class="btn btn-danger" name="task_del">Hapus</button>
                     </form>
                 </div>

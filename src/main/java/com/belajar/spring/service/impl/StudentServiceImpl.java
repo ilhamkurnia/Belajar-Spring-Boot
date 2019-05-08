@@ -36,7 +36,7 @@ public class StudentServiceImpl implements StudentService {
     public List<Student> find() {
         List<Student> students = studentDAO.find();
         for (Student data : students){
-            data.setId_student(data.getId_student());
+            data.setIdStudent(data.getIdStudent());
         }
         return students;
 

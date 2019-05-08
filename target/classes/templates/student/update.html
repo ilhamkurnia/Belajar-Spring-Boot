@@ -17,7 +17,7 @@
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <ul class="nav navbar-nav">
-            <li class="active"><a th:href="@{/}">Home</a></li>
+            <li class="active"><a th:href="@{/student}">Home</a></li>
         </ul>
     </div>
 </nav>
@@ -25,31 +25,47 @@
     <div class="row">
         <div class="col-md-4"></div>
         <div class="form-group col-md-4">
-            <h2>Edit User</h2>
+            <h2>Edit Student</h2>
         </div>
     </div>
     <div class="row">
         <div class="col-md-4"></div>
         <div class="form-group col-md-4">
-            <button type="button" class="close" onclick="window.location.href='/user';">&times;</button>
+            <button type="button" class="close" onclick="window.location.href='/student';">&times;</button>
         </div>
     </div>
-    <form th:object="${dataSets}" th:action="@{/user/update}" th:method="put">
-        <input type="hidden" th:id="id" th:name="id" th:field="*{id}">
+    <form th:object="${dataSets}" th:action="@{/student/update}" th:method="put">
+        <input type="hidden" th:id="idStudent" th:name="idStudent" th:field="*{id}">
         <div class="row">
             <div class="col-md-4"></div>
             <div class="form-group col-md-4">
-                <label for="username">Username</label>
-                <input type="text" class="form-control" th:id="username" placeholder="Username"
-                       th:field="*{username}" required>
+                <label for="nameStudent">Nama Student</label>
+                <input type="text" class="form-control" th:id="nameStudent" placeholder="Nama"
+                       th:field="*{nameStudent}" required>
             </div>
         </div>
         <div class="row">
             <div class="col-md-4"></div>
             <div class="form-group col-md-4">
-                <label for="password">Password</label>
-                <input type="text" class="form-control" th:id="password" placeholder="Password"
-                       th:field="*{password}" required>
+                <label for="addressStudent">Alamat Student</label>
+                <input type="text" class="form-control" th:id="addressStudent" placeholder="Alamat"
+                       th:field="*{addressStudent}" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="form-group col-md-4">
+                <label for="namaJurusan">Nama Jurusan</label>
+                <input type="text" class="form-control" th:id="namaJurusan" placeholder="Nama Jurusan"
+                       th:field="*{namaJurusan}" required>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="form-group col-md-4">
+                <label for="fakultas">Fakultas</label>
+                <input type="text" class="form-control" th:id="fakultas" placeholder="Fakultas"
+                       th:field="*{fakultas}" required>
             </div>
         </div>
         <div class="row">

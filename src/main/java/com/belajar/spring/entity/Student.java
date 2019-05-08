@@ -12,54 +12,51 @@ import java.util.Map;
 @Setter
 public class Student implements Serializable {
 
-    private int id_student;
+    private int idStudent;
 
-    private String name;
+    private String nameStudent;
 
-    private String address;
+    private String addressStudent;
 
     private String namaJurusan;
 
     private String fakultas;
-
-    private String jurusan_id;
 
 
     public Student() {
 
     }
 
-    public Student(int id_student, String name, String address,String namaJurusan,String fakultas,String jurusan_id) {
-        this.id_student = id_student;
-        this.name = name;
-        this.address = address;
+    public Student(int idStudent, String nameStudent, String addressStudent, String namaJurusan, String fakultas) {
+        this.idStudent = idStudent;
+        this.nameStudent = nameStudent;
+        this.addressStudent = addressStudent;
         this.namaJurusan = namaJurusan;
         this.fakultas = fakultas;
-        this.jurusan_id = jurusan_id;
     }
 
-    public int getId_student() {
-        return id_student;
+    public int getIdStudent() {
+        return idStudent;
     }
 
-    public void setId_student(int id_student) {
-        this.id_student = id_student;
+    public void setIdStudent(int idStudent) {
+        this.idStudent = idStudent;
     }
 
-    public String getName() {
-        return name;
+    public String getNameStudent() {
+        return nameStudent;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNameStudent(String nameStudent) {
+        this.nameStudent = nameStudent;
     }
 
-    public String getAddress() {
-        return address;
+    public String getAddressStudent() {
+        return addressStudent;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setAddressStudent(String addressStudent) {
+        this.addressStudent = addressStudent;
     }
 
     public String getNamaJurusan() {
@@ -78,22 +75,14 @@ public class Student implements Serializable {
         this.fakultas = fakultas;
     }
 
-    public String getJurusan_id(){
-        return jurusan_id;
-    }
-
-    public void setJurusan_id(String jurusan_id){
-        this.jurusan_id = jurusan_id;
-    }
     @Override
     public String   toString() {
         return "Student{" +
-                "id_student=" + id_student +
-                ", name='" + name + '\'' +
-                ", address='" + address + '\'' +
+                "idStudent=" + idStudent +
+                ", nameStudent='" + nameStudent + '\'' +
+                ", addressStudent='" + addressStudent + '\'' +
                 ", namaJurusan='" + namaJurusan + '\'' +
                 ", fakultas='" + fakultas + '\'' +
-                ", jurusan_id='" + jurusan_id + '\'' +
                 '}';
     }
 
