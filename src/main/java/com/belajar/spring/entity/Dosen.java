@@ -32,7 +32,7 @@ public class Dosen implements Serializable {
         return nameDosen;
     }
 
-    public void setNameDosen(String name) {
+    public void setNameDosen(String nameDosen) {
         this.nameDosen = nameDosen;
     }
 
