@@ -2,9 +2,9 @@
 package com.belajar.spring.dao.impl;
 
 import com.belajar.spring.common.Table;
-import com.belajar.spring.dao.KrsDAO;
+import com.belajar.spring.dao.KRSDAO;
 import com.belajar.spring.entity.Dosen;
-import com.belajar.spring.entity.Krs;
+import com.belajar.spring.entity.KRS;
 import java.sql.PreparedStatement;
 import java.sql.Statement;
 import java.util.List;
@@ -18,13 +18,13 @@ import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class KrsDAOImpl implements KrsDAO {
+public class KRSDAOImpl implements KRSDAO {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
     @Override
-    public Krs save(Krs param) {
-        String sql = "INSERT INTO " + Table.TABLE_KRS + " (idKrs, nameJurusan, nameFakultas) VALUES (?, ?, ?)";
+    public KRS save(KRS param) {
+        String sql = "INSERT INTO " + Table.TABLE_KRS + " (krs_id, name_jurusan, name_fakultas) VALUES (?, ?, ?)";
 
         final KeyHolder keyHolder = new GeneratedKeyHolder();
         jdbcTemplate.update(con -> {
@@ -40,11 +40,11 @@ public class KrsDAOImpl implements KrsDAO {
     }
 
     @Override
-    public Krs update(Krs param) {
+    public KRS update(KRS param) {
         String sql = "UPDATE " + Table.TABLE_KRS + " SET " +
-                "nameJurusan = ?, " +
-                "nameFakultas = ? " +
-                "WHERE idkrs =  ? ";
+                "name_jurusan = ?, " +
+                "name_fakultas = ? " +
+                "WHERE krs_id =  ? ";
 
         jdbcTemplate.update(sql,
                 param.getNameJurusan(),
@@ -55,24 +55,24 @@ public class KrsDAOImpl implements KrsDAO {
     }
 
     @Override
-    public int delete(Krs param) {
-        String sql = "DELETE FROM " + Table.TABLE_KRS + " WHERE idKrs = ? ";
+    public int delete(KRS param) {
+        String sql = "DELETE FROM " + Table.TABLE_KRS + " WHERE krs_id = ? ";
 
         return jdbcTemplate.update(sql, param.getIdKrs());
     }
 
     @Override
-    public List<Krs> find() {
+    public List<KRS> find() {
         String sql = "SELECT * FROM " + Table.TABLE_KRS;
 
-        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Krs.class));
+        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(KRS.class));
     }
 
     @Override
-    public Krs findById(int id) {
-        String sql = "SELECT * FROM " + Table.TABLE_KRS + " WHERE idKrs = ? ";
+    public KRS findById(int id) {
+        String sql = "SELECT * FROM " + Table.TABLE_KRS + " WHERE krs_id = ? ";
         try {
-            return jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(Krs.class), id);
+            return jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(KRS.class), id);
         } catch (EmptyResultDataAccessException ignored) {
         }
 
@@ -82,9 +82,9 @@ public class KrsDAOImpl implements KrsDAO {
 
 
     @Override
-    public List<Krs> findByName(Krs param){
-        String sql = "SELECT * FROM " + Table.TABLE_KRS + " where nameJurusan like ?";
-        return jdbcTemplate.query(sql, new Object[]{"%" + param.getNameJurusan() + "%"}, new BeanPropertyRowMapper<>(Krs.class));
+    public List<KRS> findByName(KRS param){
+        String sql = "SELECT * FROM " + Table.TABLE_KRS + " where name_jurusan like ?";
+        return jdbcTemplate.query(sql, new Object[]{"%" + param.getNameJurusan() + "%"}, new BeanPropertyRowMapper<>(KRS.class));
     }
 
 

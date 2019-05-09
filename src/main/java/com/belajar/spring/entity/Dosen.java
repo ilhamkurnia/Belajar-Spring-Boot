@@ -54,14 +54,6 @@ public class Dosen implements Serializable {
                 '}';
     }
 
-    public Dosen(int idDosen) {
-        this.idDosen = idDosen;
-    }
-
-    public Dosen(String nameDosen, String addressDosen) {
-        this.nameDosen = nameDosen;
-        this.addressDosen = addressDosen;
-    }
 
     public Dosen(int idDosen, String nameDosen, String addressDosen) {
         this.idDosen = idDosen;

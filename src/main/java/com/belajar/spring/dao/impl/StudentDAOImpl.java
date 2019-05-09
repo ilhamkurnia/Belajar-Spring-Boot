@@ -2,7 +2,8 @@ package com.belajar.spring.dao.impl;
 
 import com.belajar.spring.common.Table;
 import com.belajar.spring.dao.StudentDAO;
-import com.belajar.spring.entity.Krs;
+import com.belajar.spring.entity.KRS;
+import com.belajar.spring.entity.Dosen;
 import com.belajar.spring.entity.Student;
 import javafx.scene.control.Tab;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,7 +29,7 @@ public class StudentDAOImpl implements StudentDAO {
 
     @Override
     public Student save(Student param) {
-        String sql = "INSERT INTO " + Table.TABLE_STUDENT + " (nameStudent , addressStudent, idDosen , idKrs) VALUES (?,?,?,?)";
+        String sql = "INSERT INTO " + Table.TABLE_STUDENT + " (student_name , student_address, dosen_id , krs_id) VALUES (?,?,?,?)";
 
         final KeyHolder keyHolder = new GeneratedKeyHolder();
         jdbcTemplate.update(con -> {
@@ -47,7 +48,7 @@ public class StudentDAOImpl implements StudentDAO {
 
     @Override
     public Student update(Student param) {
-        String sql = "update " + Table.TABLE_STUDENT + " set nameStudent=?,addressStudent=? ,idDosen=? , idKrs =? where idStudent=?";
+        String sql = "update " + Table.TABLE_STUDENT + " set student_name=?,student_address=? ,dosen_id=? , krs_id =? where student_id=?";
         int rtn = jdbcTemplate.update(connection -> {
             PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, param.getNameStudent());
@@ -63,7 +64,7 @@ public class StudentDAOImpl implements StudentDAO {
 
     @Override
     public int delete(Student param) {
-        String sql = "DELETE from " + Table.TABLE_STUDENT + " where idStudent = ?";
+        String sql = "DELETE from " + Table.TABLE_STUDENT + " where student_id = ?";
         int rtn = jdbcTemplate.update(connection -> {
             PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, param.getIdStudent());
@@ -76,19 +77,19 @@ public class StudentDAOImpl implements StudentDAO {
     //                 table_dosen.idDosen ) JOIN table_krs ON table_student.idKrs = table_krs.idKrs
     @Override
     public List<Student> find() {
-        String sql = "SELECT s.nameStudent ,s.addressStudent ,d.nameDosen ,k.nameJurusan ,k.nameFakultas "
-                + "FROM (" + Table.TABLE_STUDENT +" s JOIN "+ Table.TABLE_DOSEN+" d ON s.idDosen ="
-                + "d.idDosen ) JOIN "+ Table.TABLE_KRS +" k ON s.idKrs = k.idKrs";
+        String sql = "SELECT s.student_id ,s.student_address ,d.dosen_name ,k.name_jurusan ,k.name_fakultas "
+                + "FROM (" + Table.TABLE_STUDENT +" s JOIN "+ Table.TABLE_DOSEN+" d ON s.dosen_id ="
+                + "d.dosen_id ) JOIN "+ Table.TABLE_KRS +" k ON s.krs_id = k.krs_id";
 
         return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Student.class));
     }
 
     @Override
     public Student findById(int id) {
-        String sql = "SELECT s.nameStudent ,s.addressStudent ,d.nameDosen ,k.nameJurusan ,k.nameFakultas "
-                + "from (" + Table.TABLE_STUDENT +" s JOIN "+ Table.TABLE_DOSEN+" d ON s.idDosen = "
-                + "d.idDosen ) JOIN "+ Table.TABLE_KRS +" k ON s.idKrs = k.idKrs"
-                + "WHERE s.idStudent =?";
+        String sql = "SELECT s.student_id ,s.student_address ,d.dosen_name ,k.name_jurusan ,k.name_fakultas "
+                + "from (" + Table.TABLE_STUDENT +" s JOIN "+ Table.TABLE_DOSEN+" d ON s.dosen_id = "
+                + "d.dosen_id ) JOIN "+ Table.TABLE_KRS +" k ON s.krs_id = k.krs_id"
+                + "WHERE student_id =?";
         try {
             return jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(Student.class), id);
         } catch (EmptyResultDataAccessException ignored) {

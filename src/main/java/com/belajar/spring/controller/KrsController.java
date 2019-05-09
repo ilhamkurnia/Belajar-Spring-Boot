@@ -1,9 +1,8 @@
 
 package com.belajar.spring.controller;
 
-import com.belajar.spring.entity.Krs;
-import com.belajar.spring.service.DosenService;
-import com.belajar.spring.service.KrsService;
+import com.belajar.spring.entity.KRS;
+import com.belajar.spring.service.KRSService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,13 +11,13 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/krs")
-public class KrsController {
+public class KRSController{
     @Autowired
-    private KrsService service;
+    private KRSService service;
 
     @GetMapping(path = "/create")
     public String viewCreate(Model model) {
-        model.addAttribute("dataSets", new Krs());
+        model.addAttribute("dataSets", new KRS());
         return "/krs/create";
     }
 
@@ -29,8 +28,8 @@ public class KrsController {
     }
 
     @PostMapping(value = "/create")
-    public String save(Krs param) {
-        Krs data = service.save(param);
+    public String save(KRS param) {
+        KRS data = service.save(param);
         if (data.getIdKrs() == 0) {
             return "redirect:/krs?failed";
         } else {
@@ -39,8 +38,8 @@ public class KrsController {
     }
 
     @PutMapping(path = "/update")
-    public String update(Krs param) {
-        Krs data = service.update(param);
+    public String update(KRS param) {
+        KRS data = service.update(param);
         if (data.getIdKrs() == 0) {
             return "redirect:/krs?ufailed";
         } else {
@@ -49,7 +48,7 @@ public class KrsController {
     }
 
     @DeleteMapping(path = "/delete")
-    public String delete(Krs param) {
+    public String delete(KRS param) {
         int data = service.delete(param);
         if (data == 0) {
             return "redirect:/krs?dfailed";
@@ -64,7 +63,7 @@ public class KrsController {
         if (param == null && param1 == null) {
             model.addAttribute("dataSets", service.find());
         } else {
-            Krs krs = new Krs();
+            KRS krs = new KRS();
             krs.setNameJurusan(param);
             model.addAttribute("dataSets", service.findByName(krs));
         }

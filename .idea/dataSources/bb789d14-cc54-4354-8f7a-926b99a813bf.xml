@@ -970,20 +970,20 @@
     <table id="245" parent="2" name="table_profile"/>
     <table id="246" parent="2" name="table_student"/>
     <table id="247" parent="2" name="tbl_user"/>
-    <column id="248" parent="243" name="idDosen">
+    <column id="248" parent="243" name="dosen_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="249" parent="243" name="nameDosen">
+    <column id="249" parent="243" name="dosen_name">
       <Position>2</Position>
       <DataType>varchar(200)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="250" parent="243" name="addressDosen">
+    <column id="250" parent="243" name="dosen_address">
       <Position>3</Position>
       <DataType>varchar(200)|0s</DataType>
       <NotNull>1</NotNull>
@@ -991,23 +991,23 @@
     </column>
     <key id="251" parent="243" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
-      <ColNames>idDosen</ColNames>
+      <ColNames>dosen_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="252" parent="244" name="idKrs">
+    <column id="252" parent="244" name="krs_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="253" parent="244" name="nameJurusan">
+    <column id="253" parent="244" name="name_jurusan">
       <Position>2</Position>
       <DataType>varchar(200)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="254" parent="244" name="nameFakultas">
+    <column id="254" parent="244" name="name_fakultas">
       <Position>3</Position>
       <DataType>varchar(200)|0s</DataType>
       <NotNull>1</NotNull>
@@ -1015,7 +1015,7 @@
     </column>
     <key id="255" parent="244" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
-      <ColNames>idKrs</ColNames>
+      <ColNames>krs_id</ColNames>
       <Primary>1</Primary>
     </key>
     <column id="256" parent="245" name="namaLengkap">
@@ -1038,30 +1038,30 @@
       <DataType>varchar(200)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="260" parent="246" name="idStudent">
+    <column id="260" parent="246" name="student_id">
       <Position>1</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="261" parent="246" name="nameStudent">
+    <column id="261" parent="246" name="student_name">
       <Position>2</Position>
       <DataType>varchar(200)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="262" parent="246" name="addressStudent">
+    <column id="262" parent="246" name="student_address">
       <Position>3</Position>
       <DataType>varchar(200)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="263" parent="246" name="idDosen">
+    <column id="263" parent="246" name="dosen_id">
       <Position>4</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="264" parent="246" name="idKrs">
+    <column id="264" parent="246" name="krs_id">
       <Position>5</Position>
       <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
@@ -1069,7 +1069,7 @@
     </column>
     <key id="265" parent="246" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
-      <ColNames>idStudent</ColNames>
+      <ColNames>student_id</ColNames>
       <Primary>1</Primary>
     </key>
     <column id="266" parent="247" name="id">

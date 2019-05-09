@@ -260,7 +260,6 @@
                         <th>Nama</th>
                         <th>Alamat</th>
                         <th>Nama Dosen</th>
-                        <th>nama Dosen</th>
                         <th>Nama Jurusan</th>
                         <th>Nama Fakultas</th>
                         <th class="text-center"><em class="fa fa-cog"></em></th>
@@ -272,14 +271,11 @@
                         <td th:text="${data.addressStudent}"></td>
                         <td th:text="${data.idDosen}"></td>
                         <td th:text="${data.idKrs}"></td>
-                        <td th:text="${data.nameDosen}"></td>
-                        <td th:text="${data.nameJurusan}"></td>
-                        <td th:text="${data.nameFakultas}"></td>
                         <td align="center">
                             <a th:href="${'student/update/' + data.idStudent}" class="btn btn-warning"><i
                                     class="fa fa-pencil"></i></a>
                             <a href="#" class="delete-modal btn btn-danger"
-                               th:data-value="${data.idStudent}"
+                              <1--th:data-value="${data.idStudent}"
                                data-toggle="modal"
                                data-target="#myModal"><i class="fa fa-trash"></i></a>
                         </td>

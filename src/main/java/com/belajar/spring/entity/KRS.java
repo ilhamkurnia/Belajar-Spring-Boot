@@ -8,14 +8,14 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class Krs implements Serializable {
+public class KRS implements Serializable {
 
 
     private int idKrs;
     private String nameJurusan;
     private String nameFakultas;
 
-    public Krs() {
+    public KRS() {
 
     }
 
@@ -54,7 +54,7 @@ public class Krs implements Serializable {
                 '}';
     }
 
-    public Krs(int idKrs, String nameJurusan, String nameFakultas) {
+    public KRS(int idKrs, String nameJurusan, String nameFakultas) {
         this.idKrs = idKrs;
         this.nameJurusan = nameJurusan;
         this.nameFakultas = nameFakultas;

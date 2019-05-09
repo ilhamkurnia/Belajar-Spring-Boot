@@ -1,13 +1,13 @@
 package com.belajar.spring.dao;
 
-import com.belajar.spring.entity.Krs;
+import com.belajar.spring.entity.KRS;
 
 import java.util.List;
 
-public interface KrsDAO extends BaseDAO<Krs> {
-    Krs findById(int id);
+public interface KRSDAO extends BaseDAO<KRS> {
+    KRS findById(int id);
 
-    List<Krs> findByName(Krs param);
+    List<KRS> findByName(KRS param);
 
 
 
