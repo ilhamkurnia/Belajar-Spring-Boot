@@ -38,7 +38,7 @@ public class KrsServiceImpl implements KrsService {
     public List<Krs> find() {
         List<Krs>  krs = krsDAO.find();
         for (Krs data : krs){
-            data.setId_krs(data.getId_krs());
+            data.setIdKrs(data.getIdKrs());
         }
 
         return krs;

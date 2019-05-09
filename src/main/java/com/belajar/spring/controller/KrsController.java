@@ -31,7 +31,7 @@ public class KrsController {
     @PostMapping(value = "/create")
     public String save(Krs param) {
         Krs data = service.save(param);
-        if (data.getId_krs() == 0) {
+        if (data.getIdKrs() == 0) {
             return "redirect:/krs?failed";
         } else {
             return "redirect:/krs?success";
@@ -41,7 +41,7 @@ public class KrsController {
     @PutMapping(path = "/update")
     public String update(Krs param) {
         Krs data = service.update(param);
-        if (data.getId_krs() == 0) {
+        if (data.getIdKrs() == 0) {
             return "redirect:/krs?ufailed";
         } else {
             return "redirect:/krs?usuccess";
@@ -64,9 +64,9 @@ public class KrsController {
         if (param == null && param1 == null) {
             model.addAttribute("dataSets", service.find());
         } else {
-            Krs user = new Krs();
-            user.setNamaJurusan(param);
-            model.addAttribute("dataSets", service.findByName(user));
+            Krs krs = new Krs();
+            krs.setNameJurusan(param);
+            model.addAttribute("dataSets", service.findByName(krs));
         }
         return "/krs/list";
     }

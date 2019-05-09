@@ -11,53 +11,53 @@ import lombok.Setter;
 public class Krs implements Serializable {
 
 
-    private int id_krs;
-    private String namaJurusan;
-    private String fakultas;
+    private int idKrs;
+    private String nameJurusan;
+    private String nameFakultas;
 
     public Krs() {
 
     }
 
-    public int getId_krs() {
-        return id_krs;
+    public int getIdKrs() {
+        return idKrs;
     }
 
-    public void setId_krs(int id_krs) {
-        this.id_krs = id_krs;
+    public void setIdKrs(int idKrs) {
+        this.idKrs = idKrs;
     }
 
 
-    public String getNamaJurusan() {
-        return namaJurusan;
+    public String getNameJurusan() {
+        return nameJurusan;
     }
 
-    public void setNamaJurusan(String namaJurusan) {
-        this.namaJurusan = namaJurusan;
+    public void setNameJurusan(String nameJurusan) {
+        this.nameJurusan = nameJurusan;
     }
 
-    public String getFakultas() {
-        return fakultas;
+    public String getNameFakultas() {
+        return nameFakultas;
     }
 
-    public void setFakultas(String fakultas) {
-        this.fakultas = fakultas;
+    public void setNameFakultas(String nameFakultas) {
+        this.nameFakultas = nameFakultas;
     }
 
 
     @Override
     public String toString() {
         return "Student{" +
-                "id_krs=='" + id_krs +
-                ", namaJurusan='" + namaJurusan + '\'' +
-                ", fakultas='" + fakultas + '\'' +
+                "idKrs=='" + idKrs +
+                ", nameJurusan='" + nameJurusan + '\'' +
+                ", nameFakultas='" + nameFakultas + '\'' +
                 '}';
     }
 
-    public Krs(int id_krs, String namaJurusan, String fakultas) {
-        this.id_krs = id_krs;
-        this.namaJurusan = namaJurusan;
-        this.fakultas = fakultas;
+    public Krs(int idKrs, String nameJurusan, String nameFakultas) {
+        this.idKrs = idKrs;
+        this.nameJurusan = nameJurusan;
+        this.nameFakultas = nameFakultas;
     }
 }
 
