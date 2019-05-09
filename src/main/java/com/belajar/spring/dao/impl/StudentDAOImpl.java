@@ -28,15 +28,15 @@ public class StudentDAOImpl implements StudentDAO {
 
     @Override
     public Student save(Student param) {
-        String sql = "INSERT INTO " + Table.TABLE_STUDENT + " (nameStudent , addressStudent, namaJurusan, fakultas) VALUES (?,?,?,?)";
+        String sql = "INSERT INTO " + Table.TABLE_STUDENT + " (nameStudent , addressStudent, idDosen , idKrs) VALUES (?,?,?,?)";
 
         final KeyHolder keyHolder = new GeneratedKeyHolder();
         jdbcTemplate.update(con -> {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, param.getNameStudent());
             ps.setString(2, param.getAddressStudent());
-            ps.setString(3, param.getNamaJurusan());
-            ps.setString(4, param.getFakultas());
+            ps.setInt( 3, param.getIdDosen());
+            ps.setInt(4, param.getIdKrs());
             return ps;
         }, keyHolder);
 
@@ -47,13 +47,13 @@ public class StudentDAOImpl implements StudentDAO {
 
     @Override
     public Student update(Student param) {
-        String sql = "update " + Table.TABLE_STUDENT + " set nameStudent=?,addressStudent=?,namaJurusan=?, fakultas=? where idStudent=?";
+        String sql = "update " + Table.TABLE_STUDENT + " set nameStudent=?,addressStudent=? ,idDosen=? , idKrs =? where idStudent=?";
         int rtn = jdbcTemplate.update(connection -> {
             PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, param.getNameStudent());
             ps.setString(2, param.getAddressStudent());
-            ps.setString(3, param.getNamaJurusan());
-            ps.setString(4, param.getFakultas());
+            ps.setInt(3, param.getIdDosen());
+            ps.setInt(4, param.getIdKrs());
             ps.setInt(5, param.getIdStudent());
             return ps;
         });
@@ -72,17 +72,23 @@ public class StudentDAOImpl implements StudentDAO {
         return rtn;
     }
 
+    //SELECT nameStudent ,addressStudent ,nameDosen ,nameJurusan ,nameFakultas FROM (table_student JOIN  table_dosen ON table_student.idDosen =
+    //                 table_dosen.idDosen ) JOIN table_krs ON table_student.idKrs = table_krs.idKrs
     @Override
     public List<Student> find() {
-        String sql = "SELECT * FROM " + Table.TABLE_STUDENT;
+        String sql = "SELECT s.nameStudent ,s.addressStudent ,d.nameDosen ,k.nameJurusan ,k.nameFakultas "
+                + "FROM (" + Table.TABLE_STUDENT +" s JOIN "+ Table.TABLE_DOSEN+" d ON s.idDosen ="
+                + "d.idDosen ) JOIN "+ Table.TABLE_KRS +" k ON s.idKrs = k.idKrs";
 
         return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Student.class));
     }
 
     @Override
     public Student findById(int id) {
-        String sql = "SELECT * FROM "+ Table.TABLE_STUDENT + " where idStudent = ?";
-
+        String sql = "SELECT s.nameStudent ,s.addressStudent ,d.nameDosen ,k.nameJurusan ,k.nameFakultas "
+                + "from (" + Table.TABLE_STUDENT +" s JOIN "+ Table.TABLE_DOSEN+" d ON s.idDosen = "
+                + "d.idDosen ) JOIN "+ Table.TABLE_KRS +" k ON s.idKrs = k.idKrs"
+                + "WHERE s.idStudent =?";
         try {
             return jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(Student.class), id);
         } catch (EmptyResultDataAccessException ignored) {

@@ -1055,14 +1055,15 @@
       <DataType>varchar(200)|0s</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="263" parent="246" name="namaJurusan">
+    <column id="263" parent="246" name="idDosen">
       <Position>4</Position>
-      <DataType>varchar(200)|0s</DataType>
+      <DataType>int(11)|0s</DataType>
+      <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="264" parent="246" name="fakultas">
+    <column id="264" parent="246" name="idKrs">
       <Position>5</Position>
-      <DataType>varchar(200)|0s</DataType>
+      <DataType>int(11)|0s</DataType>
       <NotNull>1</NotNull>
       <ColumnKind>normal</ColumnKind>
     </column>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 08, 2019 at 11:29 AM
+-- Generation Time: May 09, 2019 at 06:17 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.4
 
@@ -40,7 +40,6 @@ CREATE TABLE `table_dosen` (
 
 INSERT INTO `table_dosen` (`idDosen`, `nameDosen`, `addressDosen`) VALUES
 (10023295, 'mas kenda', 'jalan cempaka'),
-(10023296, 'ulalala', 'sdsd'),
 (10023297, 'sad', 'sdas'),
 (10023298, 'sad', 'sdsad');
 
@@ -52,17 +51,16 @@ INSERT INTO `table_dosen` (`idDosen`, `nameDosen`, `addressDosen`) VALUES
 
 CREATE TABLE `table_krs` (
   `idKrs` int(11) NOT NULL,
-  `namaJurusan` varchar(200) NOT NULL,
-  `fakultas` varchar(200) NOT NULL
+  `nameJurusan` varchar(200) NOT NULL,
+  `nameFakultas` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `table_krs`
 --
 
-INSERT INTO `table_krs` (`idKrs`, `namaJurusan`, `fakultas`) VALUES
-(121212, 'belajar java', 'ti'),
-(121213, 'sad', 'asda');
+INSERT INTO `table_krs` (`idKrs`, `nameJurusan`, `nameFakultas`) VALUES
+(121217, 'ekonomi', 'fipps');
 
 -- --------------------------------------------------------
 
@@ -97,13 +95,6 @@ CREATE TABLE `table_student` (
   `namaJurusan` varchar(200) DEFAULT NULL,
   `fakultas` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `table_student`
---
-
-INSERT INTO `table_student` (`idStudent`, `nameStudent`, `addressStudent`, `namaJurusan`, `fakultas`) VALUES
-(4, 'ilham', 'kemang', 'informatika', 'ftik');
 
 -- --------------------------------------------------------
 
@@ -173,13 +164,13 @@ ALTER TABLE `table_dosen`
 -- AUTO_INCREMENT for table `table_krs`
 --
 ALTER TABLE `table_krs`
-  MODIFY `idKrs` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121214;
+  MODIFY `idKrs` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121218;
 
 --
 -- AUTO_INCREMENT for table `table_student`
 --
 ALTER TABLE `table_student`
-  MODIFY `idStudent` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `idStudent` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tbl_user`

@@ -18,21 +18,27 @@ public class Student implements Serializable {
 
     private String addressStudent;
 
-    private String namaJurusan;
+    private int idDosen;
+    private String nameDosen;
 
-    private String fakultas;
-
+    private int idKrs;
+    private String nameJurusan;
+    private String nameFakultas;
 
     public Student() {
 
     }
 
-    public Student(int idStudent, String nameStudent, String addressStudent, String namaJurusan, String fakultas) {
+    public Student(int idStudent, String nameStudent, String addressStudent, int idDosen, String nameDosen,int idKrs
+    , String nameJurusan ,String nameFakultas) {
         this.idStudent = idStudent;
         this.nameStudent = nameStudent;
         this.addressStudent = addressStudent;
-        this.namaJurusan = namaJurusan;
-        this.fakultas = fakultas;
+        this.idDosen = idDosen;
+        this.idKrs =idKrs;
+        this.nameDosen = nameDosen;
+        this.nameJurusan = nameJurusan;
+        this.nameFakultas = nameFakultas;
     }
 
     public int getIdStudent() {
@@ -59,20 +65,29 @@ public class Student implements Serializable {
         this.addressStudent = addressStudent;
     }
 
-    public String getNamaJurusan() {
-        return namaJurusan;
+    public int getIdDosen(){
+        return idDosen;
     }
 
-    public void setNamaJurusan(String namaJurusan) {
-        this.namaJurusan = namaJurusan;
+    public void setIdDosen(int idDosen){
+        this.idDosen = idDosen;
     }
+    public int getIdKrs(){ return idKrs; }
 
-    public String getFakultas() {
-        return fakultas;
+    public void setIdKrs(int idKrs){
+        this.idKrs = idKrs;
     }
-
-    public void setFakultas(String fakultas) {
-        this.fakultas = fakultas;
+    public String getNameJurusan(){
+        return nameJurusan;
+    }
+    public void setNameJurusan(String nameJurusan){
+        this.nameJurusan = nameJurusan;
+    }
+    public String getNameFakultas(){
+        return nameFakultas;
+    }
+    public void setNameFakultas(){
+        this.nameFakultas = nameFakultas;
     }
 
     @Override
@@ -81,8 +96,11 @@ public class Student implements Serializable {
                 "idStudent=" + idStudent +
                 ", nameStudent='" + nameStudent + '\'' +
                 ", addressStudent='" + addressStudent + '\'' +
-                ", namaJurusan='" + namaJurusan + '\'' +
-                ", fakultas='" + fakultas + '\'' +
+                ", idDosen='" + idDosen + '\'' +
+                ", nameDosen='" + nameDosen + '\'' +
+                ", idKrs='" + idKrs + '\'' +
+                ", nameJurusan='" + nameJurusan + '\'' +
+                ", nameFakultas='"+ nameFakultas +'\'' +
                 '}';
     }
 

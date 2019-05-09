@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 09, 2019 at 06:17 AM
+-- Generation Time: May 09, 2019 at 10:15 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.4
 
@@ -92,9 +92,16 @@ CREATE TABLE `table_student` (
   `idStudent` int(11) NOT NULL,
   `nameStudent` varchar(200) DEFAULT NULL,
   `addressStudent` varchar(200) DEFAULT NULL,
-  `namaJurusan` varchar(200) DEFAULT NULL,
-  `fakultas` varchar(200) NOT NULL
+  `idDosen` int(11) NOT NULL,
+  `idKrs` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `table_student`
+--
+
+INSERT INTO `table_student` (`idStudent`, `nameStudent`, `addressStudent`, `idDosen`, `idKrs`) VALUES
+(1, 'ilham kurnia', 'kemang', 10023295, 121217);
 
 -- --------------------------------------------------------
 
@@ -170,7 +177,7 @@ ALTER TABLE `table_krs`
 -- AUTO_INCREMENT for table `table_student`
 --
 ALTER TABLE `table_student`
-  MODIFY `idStudent` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `idStudent` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tbl_user`
